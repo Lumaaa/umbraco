@@ -1,0 +1,68 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using Umbraco.Web
+
+
+@*
+    This snippet displays a list of links of the pages immediately under the top-most page in the content tree.
+    This is the home page for a standard website.
+    It also highlights the current active page/section in the navigation with the CSS class "current".
+*@
+<style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+  
+@{ var selection = Model.Content.Site().Children.Where(x => x.IsVisible()).ToArray(); }
+
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="/#">Portfolio</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+        @if (selection.Length > 0)
+{
+    <ul class="nav navbar-nav">
+	
+        
+        @foreach (var item in selection)
+        {
+
+          <li class="@(item.IsAncestorOrSelf(Model.Content) ? "current" : null)">
+                <a href="@item.Url">@item.Name</a>
+            </li>
+
+      
+            
+        }
+    </ul>
+}
+
+      <ul class="nav navbar-nav navbar-right">
+        @if (!Members.GetCurrentLoginStatus().IsLoggedIn) {
+        <li><a href="/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+} 
+else  
+{ 
+        <li><a href="/login/"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+ 
+} 
+
+      </ul>
+    </div>
+  </div>
+  </nav>

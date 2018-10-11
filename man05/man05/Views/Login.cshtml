@@ -1,0 +1,22 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ClientDependency.Core.Mvc
+@{
+	Layout = "master.cshtml";
+}
+
+@* the fun starts here *@
+<div class="container-fluid bg-3"> 
+<div class="col-md-4"></div>
+<div class="col-md-4">
+@Html.RenderJsHere() @if (!Members.GetCurrentLoginStatus().IsLoggedIn) {
+@Html.Partial("Login"); 
+} 
+else  
+{ 
+@Html.Partial("Logout"); 
+ 
+} 
+
+</div>
+<div class="col-md-4"></div>
+</div>

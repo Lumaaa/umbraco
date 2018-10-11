@@ -1,0 +1,51 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "master.cshtml";
+}
+
+@* the fun starts here *@
+@{
+    var memberService = ApplicationContext.Current.Services.MemberService;
+    var members = memberService.GetMembersByGroup("Active");
+    var membersP = memberService.GetMembersByGroup("Prospect");
+}  
+<div class="container-fluid bg-3 text-center">
+
+    
+  <h3>Arctive Members</h3><br>
+  <div class="row">
+
+       @foreach (var member in members) 
+       
+            {
+              <div class="col-sm-3">
+                <p>
+                    @(member.GetValue("firstName") + " "
+                    + member.GetValue("lastname")) <br/>
+                    @member.GetValue("address")<br />
+                    @(member.GetValue("zip") + " "
+                    + member.GetValue("city"))
+                    Mobile: @member.GetValue("mobile")<br />
+                </p>
+                 <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                  </div>
+            }
+    
+  </div>
+    <h3>Prospect Members</h3><br>
+  <div class="row">
+       @foreach (var member in membersP) 
+       
+            {
+              <div class="col-sm-3">
+                <p>
+                    @(member.GetValue("firstname") + " "
+                    + member.GetValue("lastname")) <br/>
+                    Mobile: @member.GetValue("mobile")<br />
+                </p>
+                 <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                  </div>
+            }
+  </div>
+</div><br>

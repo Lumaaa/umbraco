@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+ @{
+        var memberService = ApplicationContext.Current.Services.MemberService;
+        var members = memberService.GetMembersByGroup("Active");
+    }
+       @foreach (var member in members) 
+       
+            {
+              <div class="col-sm-3">
+                <p>
+                    @(member.GetValue("firstname") + " "
+                    + member.GetValue("lastname")) <br/>
+                    @member.GetValue("address")<br />
+                    @(member.GetValue("zip") + " "
+                    + member.GetValue("city"))
+                    Mobile: @member.GetValue("mobile")<br />
+                </p>
+                 <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                  </div>
+            }
+            
+              
+    
+     
+     
+  

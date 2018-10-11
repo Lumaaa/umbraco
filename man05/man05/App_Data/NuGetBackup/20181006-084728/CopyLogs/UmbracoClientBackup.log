@@ -1,0 +1,26 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : 6. oktober 2018 08:47:43
+   Source : C:\Users\helen\Documents\EAAA\2 semester\cms\Mandatory01\man05\man05\Umbraco_Client\
+     Dest : C:\Users\helen\Documents\EAAA\2 semester\cms\Mandatory01\man05\man05\App_Data\NuGetBackup\20181006-084728\Umbraco_Client\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                   0	C:\Users\helen\Documents\EAAA\2 semester\cms\Mandatory01\man05\man05\Umbraco_Client\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         1         0         1         0         0         0
+   Files :         0         0         0         0         0         0
+   Bytes :         0         0         0         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : 6. oktober 2018 08:47:43
+

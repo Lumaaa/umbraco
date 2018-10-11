@@ -1,0 +1,25 @@
+﻿@model man05.ViewModels.ContactForm
+@{
+    Layout = null;
+}
+
+@using (Html.BeginUmbracoForm("HandleFormSubmit", "ContactFormSurface", new object { }) )
+{
+    <form>
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                @Html.TextBoxFor(m => Model.Name, new { @class = "form-control", placeholder = "Name" })
+            </div>
+            <div class="col-sm-6 form-group">
+                @Html.TextBoxFor(m => Model.Email, new { @class = "form-control", placeholder = "Email" })
+            </div>
+            @Html.TextAreaFor(m => Model.Message, new { @class = "form-control", placeholder = "Message" })
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <button class="btn pull-right" type="submit">Send</button>
+            </div>
+        </div>
+
+    </form>
+}
